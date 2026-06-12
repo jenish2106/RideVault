@@ -117,7 +117,7 @@ CREATE TABLE Ride (
     Dropoff_Address TEXT NOT NULL,
     Dropoff_Lat DECIMAL(9, 6) NOT NULL,
     Dropoff_Lng DECIMAL(9, 6) NOT NULL,
-    Rated_By_User BOOLEAN DEFAULT FALSE,
+    Rated_By_Rider BOOLEAN DEFAULT FALSE,
     Rated_By_Driver BOOLEAN DEFAULT FALSE,
     CONSTRAINT fk_ride_rider FOREIGN KEY (Rider_Id) REFERENCES Rider(Rider_Id),
     CONSTRAINT fk_ride_driver FOREIGN KEY (Driver_Id) REFERENCES Driver(Driver_Id),
@@ -156,8 +156,8 @@ CREATE TABLE Rating (
     Ride_Id INTEGER PRIMARY KEY,
     Rating_For_Driver INTEGER CHECK (Rating_For_Driver BETWEEN 1 AND 5),
     Driver_Comment TEXT,
-    Rating_For_User INTEGER CHECK (Rating_For_User BETWEEN 1 AND 5),
-    User_Comment TEXT,
+    Rating_For_Rider INTEGER CHECK (Rating_For_Rider BETWEEN 1 AND 5),
+    Rider_Comment TEXT,
     CONSTRAINT fk_rating_ride FOREIGN KEY (Ride_Id) REFERENCES Ride(Ride_Id) ON DELETE CASCADE
 );
 
