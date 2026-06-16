@@ -1,4 +1,4 @@
-CREATE DATABASE "RideVault";
+REATE DATABASE "RideVault";
 
 CREATE TABLE Rider (
     Rider_Id SERIAL PRIMARY KEY,
